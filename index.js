@@ -3,6 +3,8 @@ require('dotenv').config();
 const sensorModel = require('./sensorModel');
 const db = require('./db')
 
+
+
 // Define your TCP server
 const server = net.createServer((socket) => {
     console.log('Sensor connected.');
@@ -22,12 +24,14 @@ const server = net.createServer((socket) => {
     socket.on('end', () => {
         console.log('Sensor disconnected.');
     });
-
+ 
     // Handle any errors
     socket.on('error', (err) => {
         console.error('Error occurred:', err);
     });
 });
+
+
 
 // Start the server on a specific port (e.g., 8080)
 const port = 8080;
